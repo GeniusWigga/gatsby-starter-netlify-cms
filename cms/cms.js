@@ -5,14 +5,18 @@ import Features from 'site/components/Features'
 import Testimonials from 'site/components/Testimonials'
 import Pricing from 'site/components/Pricing'
 
-import { AboutPageTemplate } from 'site/templates/about-page';
-import { ProductPageTemplate } from 'site/templates/product-page';
-import { BlogPostTemplate } from 'site/templates/blog-post';
+import {AboutPageTemplate} from 'site/templates/about-page';
+import {ProductPageTemplate} from 'site/templates/product-page';
+import {BlogPostTemplate} from 'site/templates/blog-post';
+import {HomePageTemplate} from "site/templates/home-page";
 
-const AboutPagePreview = ({ entry, widgetFor }) =>
+const HomePagePreview = ({entry, widgetFor}) => <HomePageTemplate title={entry.getIn(['data', 'title'])}
+                                                                  sliderImages={widgetFor('body')} />;
+
+const AboutPagePreview = ({entry, widgetFor}) =>
   <AboutPageTemplate title={entry.getIn(['data', 'title'])} content={widgetFor('body')} />;
 
-const BlogPostPreview = ({ entry, widgetFor }) => (
+const BlogPostPreview = ({entry, widgetFor}) => (
   <BlogPostTemplate
     content={widgetFor('body')}
     description={entry.getIn(['data', 'description'])}
@@ -20,7 +24,7 @@ const BlogPostPreview = ({ entry, widgetFor }) => (
   />
 )
 
-const ProductPagePreview = ({ entry, widgetFor, getAsset }) => {
+const ProductPagePreview = ({entry, widgetFor, getAsset}) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])
   const blurbs = entryBlurbs ? entryBlurbs.toJS() : []
 
@@ -35,7 +39,7 @@ const ProductPagePreview = ({ entry, widgetFor, getAsset }) => {
     title={entry.getIn(['data', 'title'])}
     heading={entry.getIn(['data', 'heading'])}
     description={entry.getIn(['data', 'description'])}
-    intro={{ blurbs }}
+    intro={{blurbs}}
     main={{
       heading: entry.getIn(['data', 'main', 'heading']),
       description: entry.getIn(['data', 'main', 'description']),
@@ -60,9 +64,10 @@ const ProductPagePreview = ({ entry, widgetFor, getAsset }) => {
       plans: pricingPlans,
     }}
   />;
-}
+};
 
-CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
-CMS.registerPreviewTemplate('blog', BlogPostPreview)
+CMS.registerPreviewStyle('/styles.css');
+CMS.registerPreviewTemplate('home', HomePagePreview);
+CMS.registerPreviewTemplate('about', AboutPagePreview);
+CMS.registerPreviewTemplate('products', ProductPagePreview);
+CMS.registerPreviewTemplate('blog', BlogPostPreview);

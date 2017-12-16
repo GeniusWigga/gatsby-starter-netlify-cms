@@ -18,10 +18,16 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
-
   - name: "pages"
     label: "Pages"
     files:
+      - file: "src/pages/home/home.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: "Path", name: "path", widget: "hidden", default: "/"}
+          - {label: SliderImages, name: sliderImages, widget: list, fields: [{label: Image, name: image, widget: image}]}
       - file: "src/pages/about/about.md"
         label: "About"
         name: "about"
