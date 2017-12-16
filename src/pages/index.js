@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import Helmet from 'react-helmet';
-import Script from 'react-load-script';
+import React from 'react'
+import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+import Script from 'react-load-script'
 
 export default class IndexPage extends React.Component {
   handleScriptLoad() {
@@ -9,17 +9,17 @@ export default class IndexPage extends React.Component {
       window.netlifyIdentity.on('init', user => {
         if (!user) {
           window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
+            document.location.href = '/admin/'
+          })
         }
-      });
+      })
     }
-    window.netlifyIdentity.init();
+    window.netlifyIdentity.init()
   }
 
   render() {
-    const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
+    const { data } = this.props
+    const { edges: posts } = data.allMarkdownRemark
     return (
       <section className="section">
         <Script
@@ -30,7 +30,7 @@ export default class IndexPage extends React.Component {
           <div>Home</div>
         </div>
       </section>
-    );
+    )
   }
 }
 
@@ -51,4 +51,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
