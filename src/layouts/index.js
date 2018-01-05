@@ -8,6 +8,13 @@ import './all.sass'
 const Navbar = () => (
   <nav className="navbar is-transparent">
     <div className="container">
+      <div className="navbar-brand">
+        <Link to="/" className="navbar-item">
+          <figure className="image">
+            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+          </figure>
+        </Link>
+      </div>
       <div className="navbar-end">
         <a
           className="navbar-item"
