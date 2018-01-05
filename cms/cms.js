@@ -77,7 +77,7 @@ const ProductPagePreview = ({ entry, widgetFor, getAsset }) => {
 }
 
 CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('home', HomePagePreview)
-CMS.registerPreviewTemplate('about', AboutPagePreview)
-CMS.registerPreviewTemplate('products', ProductPagePreview)
+// CMS.registerPreviewTemplate('home', HomePagePreview)
+// CMS.registerPreviewTemplate('about', AboutPagePreview)
+// CMS.registerPreviewTemplate('products', ProductPagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
