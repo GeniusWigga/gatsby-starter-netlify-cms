@@ -30,27 +30,27 @@ export const BlogPostTemplate = ({
 
 export default ({ data }) => {
   const { markdownRemark: post } = data
+
+  if(!post) {
+    console.log("data: ", data);
+    return;
+  }
+
   return (
-    <BlogPostTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={<Helmet title={`Blog | ${post.frontmatter.title}`} />}
-      title={post.frontmatter.title}
-    />
+    <div>Test Blog</div>
   )
 }
 
-export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        date(formatString: "MMMM DD, YYYY")
-        title
-        description
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query BlogPostByPath($path: String!) {
+//     markdownRemark(frontmatter: { path: { eq: $path } }) {
+//       html
+//       frontmatter {
+//         path
+//         date(formatString: "MMMM DD, YYYY")
+//         title
+//         description
+//       }
+//     }
+//   }
+// `
