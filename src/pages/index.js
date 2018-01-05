@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
 import Script from 'react-load-script'
 
 export default class IndexPage extends React.Component {
@@ -18,7 +17,6 @@ export default class IndexPage extends React.Component {
   }
 
   render() {
-
     return (
       <section className="section">
         <Script
@@ -32,5 +30,3 @@ export default class IndexPage extends React.Component {
     )
   }
 }
-
-
